@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-SoftwareBrowser::Application.load_tasks
+ProgramBrowser::Application.load_tasks

@@ -53,6 +53,8 @@ gem "pygments.rb"
 
 gem "nokogiri"
 
+gem 'rename'
+
 group :development, :test do
   gem 'rspec-rails'
 end

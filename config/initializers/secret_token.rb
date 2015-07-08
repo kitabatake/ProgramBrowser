@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-SoftwareBrowser::Application.config.secret_key_base = '60c08ddf2fa58ea6e113c7fdd2842891c6716454b80b312f857a3d839ca1c7d86f4db8732918730e3b7eb037babcec942219a3ca400445ad80727c355319b653'
+ProgramBrowser::Application.config.secret_key_base = '60c08ddf2fa58ea6e113c7fdd2842891c6716454b80b312f857a3d839ca1c7d86f4db8732918730e3b7eb037babcec942219a3ca400445ad80727c355319b653'

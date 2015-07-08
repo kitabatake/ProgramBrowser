@@ -1,4 +1,4 @@
-SoftwareBrowser::Application.routes.draw do
+ProgramBrowser::Application.routes.draw do
   
   post '/programs/file_contents'
   get  '/programs/:id', to: "programs#show"

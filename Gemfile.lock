@@ -116,6 +116,8 @@ GEM
     rdoc (4.2.0)
       json (~> 1.4)
     redcarpet (3.3.2)
+    rename (1.0.2)
+      rails (>= 3.0.0)
     rspec-core (3.3.1)
       rspec-support (~> 3.3.0)
     rspec-expectations (3.3.0)
@@ -186,6 +188,7 @@ DEPENDENCIES
   pygments.rb
   rails (= 4.2)
   redcarpet
+  rename
   rspec-rails
   sass-rails (~> 4.0.2)
   sdoc
