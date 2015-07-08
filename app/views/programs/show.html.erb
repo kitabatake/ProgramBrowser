@@ -1,0 +1,20 @@
+<%= javascript_include_tag 'programs' %>
+
+<h1><%= @program.label %></h1>
+<p><%= @program.outline %></p>
+
+<div class='row-fluid' style='margin-top: 20px; '>
+
+  <div id="files" class='span3' style='background: #eee;'>
+    <ul style='padding: 10px;'>
+    <% @program.top_level_files.each do |program_file| %>
+      <%= output_file_tree(program_file) %>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class='span9' style='background: #ddd;'>
+    <div id='file_contents' class='pygments'></div>
+  </div>
+
+</div>

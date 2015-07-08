@@ -1,0 +1,31 @@
+<% provide :title, "Program Browser" %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SoftwareBrowser</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <header class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to yield(:title), '#', id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "Home",    '#' %></li>
+              <li><%= link_to "Help",    '#' %></li>
+              <li><%= link_to "Sign in", '#' %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+    
+  </body>
+</html>

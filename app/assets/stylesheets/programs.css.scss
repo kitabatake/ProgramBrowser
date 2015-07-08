@@ -1,0 +1,57 @@
+@import "bootstrap";
+
+ $main_font_color: #444;
+
+.navbar-inner{
+  @include border-radius(0);
+
+  .container{
+    width: $gridRowWidth;
+  }
+}
+
+#logo{
+  font-size: 20px;
+  float: left;
+  padding-top: 6px;
+}
+
+#files{
+
+  ul{
+    margin-left: 0;
+  }
+
+  li {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  a{
+    color: $main_font_color;
+  }
+
+  .child_files{
+    margin-left: 10px;
+  }
+
+  .file_name{
+  &:before{
+      content:"- "
+    }
+    margin-left: 4px;
+  }
+
+  .dir_name{
+    padding-left: 20px;
+    background: url(/assets/dir_close.png) no-repeat;
+    background-size: 12px auto;
+    background-position: left center;
+  }
+}
+
+#file_contents {
+  padding: 10px;
+}
+
