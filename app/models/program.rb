@@ -1,5 +1,7 @@
 class Program < ActiveRecord::Base
 
+  ProgramsDir = "app/programs"
+
   include ProgramsHelper
 
   has_many :program_files, dependent: :destroy
@@ -45,9 +47,9 @@ class Program < ActiveRecord::Base
   def root_path(full = true)
 
     if full
-      path = Rails.root.join "app/programs"
+      path = Rails.root.join ProgramsDir
     else
-      path = Pathname.new "app/programs"
+      path = Pathname.new ProgramsDir
     end
 
     path.join self.name
