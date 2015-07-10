@@ -49,4 +49,47 @@ RSpec.describe Program, type: :model do
       expect(top_level_files.first.name).to eq top_level_file_name
     end
   end
+
+  describe "#parse_files" do
+
+    before do
+      #prepare program that corresponds to "app/programs/test" dir.
+      @program = Program.new
+      @program.name = "test"
+      @program.save
+      @program.parse_files
+    end
+
+    it 'has three ProgramFiles' do
+      expect(@program.program_files.length).to eq 3
+    end
+
+    it 'has one dir that name is sample_dir' do
+      dirs = @program.program_files.dir
+      expect(dirs.length).to eq 1
+      expect(dirs.first.name).to eq "sample_dir"
+    end
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
