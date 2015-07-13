@@ -2,9 +2,15 @@ class ProgramsController < ApplicationController
 
   # show Repository action
   # param [Integer] id
-  def show
+  def outline
 
   	@program = Program.find(params[:id])
+    @read_me = @program.program_files.find_by_name 'README.md'
+
+  end
+
+  def file_browse
+    @program = Program.find(params[:id])
   end
 
   # get file contents action

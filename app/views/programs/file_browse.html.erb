@@ -1,9 +1,15 @@
 <%= javascript_include_tag 'programs' %>
 
-<h1><%= @program.label %></h1>
-<p><%= @program.outline %></p>
+<h1 style='margin-bottom: 40px;'><%= @program.label %></h1>
 
-<div class='row-fluid' style='margin-top: 20px; '>
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li><%= link_to 'outline', '/programs/' + @program.id.to_s %></li>
+    <li class='active'><%= link_to 'file browse', '/programs/file_browse/' + @program.id.to_s %></li>
+  </ul>
+</div>
+
+<div class='row-fluid' >
 
   <div id="files" class='span3' style='background: #eee;'>
     <ul style='padding: 10px;'>

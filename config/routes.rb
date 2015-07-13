@@ -1,7 +1,8 @@
 ProgramBrowser::Application.routes.draw do
   
   post '/programs/file_contents'
-  get  '/programs/:id', to: "programs#show"
+  get '/programs/file_browse/:id', to: 'programs#file_browse'
+  get  '/programs/:id', to: "programs#outline"
 
   root  'static_pages#home'
 

@@ -61,7 +61,7 @@ RSpec.describe Program, type: :model do
     end
 
     it 'has three ProgramFiles' do
-      expect(@program.program_files.length).to eq 3
+      expect(@program.program_files.length).to eq 4
     end
 
     it 'has one dir that name is sample_dir' do
