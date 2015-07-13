@@ -2,6 +2,9 @@ class ProgramFile < ActiveRecord::Base
 
   belongs_to :program
 
+  has_many :program_file_symbols
+  has_many :program_symbols, through: :program_file_symbols
+
   enum file_type: {
     file: 0,
     dir: 1
@@ -52,4 +55,36 @@ class ProgramFile < ActiveRecord::Base
     
   end
 
+  def parse_symbols
+
+    doc = Nokogiri::HTML(highlighted_html_content)
+    doc.css(".nc, .nx, .nf").each{|e|
+
+      symbol = ProgramSymbol.find_by_name e.text
+
+      unless symbol
+        symbol = ProgramSymbol.new
+        symbol.program_id = self.program_id
+        symbol.name = e.text
+        symbol.save
+      end
+
+      program_file_symbol = self.program_file_symbols.build
+      program_file_symbol.program_symbol_id = symbol.id
+      program_file_symbol.save
+    }
+
+  end
+
 end
+
+
+
+
+
+
+
+
+
+
+

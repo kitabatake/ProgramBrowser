@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708091036) do
+ActiveRecord::Schema.define(version: 20150713041558) do
+
+  create_table "program_file_symbols", force: :cascade do |t|
+    t.integer  "program_file_id"
+    t.integer  "program_symbol_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "program_files", force: :cascade do |t|
     t.integer  "program_id"
@@ -21,6 +28,13 @@ ActiveRecord::Schema.define(version: 20150708091036) do
     t.datetime "updated_at"
     t.integer  "parent_id"
     t.integer  "file_type"
+  end
+
+  create_table "program_symbols", force: :cascade do |t|
+    t.integer  "program_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "programs", force: :cascade do |t|
