@@ -4,7 +4,7 @@
 
 <div class="tabbable">
   <ul class="nav nav-tabs">
-    <li class='active'><%= link_to 'outline', '/programs/' + @program.id.to_s %></li>
+    <li class='active'><%= link_to 'outline', program_path(@program.id) %></li>
     <li><%= link_to 'file browse', '/programs/file_browse/' + @program.id.to_s %></li>
   </ul>
 </div>

@@ -1,8 +1,27 @@
 class ProgramsController < ApplicationController
 
+  def index
+    @programs = Program.all
+  end
+
+  def new
+    @program = Program.new
+  end
+
+  def create
+    
+    @program = Program.new params.require(:program).permit(:name, :outline)   # 実装は終わっていないことに注意!
+    if @program.save
+      flash[:success] = "Create #{@program.name}!"
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
   # show Repository action
   # param [Integer] id
-  def outline
+  def show
 
   	@program = Program.find(params[:id])
     @read_me = @program.program_files.find_by_name 'README.md'

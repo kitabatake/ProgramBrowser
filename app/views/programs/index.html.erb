@@ -1,0 +1,14 @@
+
+<%= link_to 'create new', '/programs/new', {class: 'btn btn-primary'} %>
+
+<% if @programs %>
+  
+  <h2>programs</h2>
+  <table class='table table-striped'>
+  <% @programs.each do |program| %>
+    <tr>
+      <td><%= link_to program.name, program_path(program.id) %> 
+    </tr>
+  <% end %>
+  </table>
+<% end %>

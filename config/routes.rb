@@ -1,10 +1,11 @@
 ProgramBrowser::Application.routes.draw do
   
+  root  'programs#index'
+
+  resources :programs
   post '/programs/file_contents'
   get '/programs/file_browse/:id', to: 'programs#file_browse'
-  get  '/programs/:id', to: "programs#outline"
-
-  root  'static_pages#home'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
