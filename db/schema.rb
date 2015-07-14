@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714063557) do
+ActiveRecord::Schema.define(version: 20150714112521) do
 
   create_table "program_file_symbols", force: :cascade do |t|
     t.integer  "program_file_id"
@@ -22,12 +22,14 @@ ActiveRecord::Schema.define(version: 20150714063557) do
 
   create_table "program_files", force: :cascade do |t|
     t.integer  "program_id"
-    t.string   "name",       limit: 255
-    t.string   "path",       limit: 255
+    t.string   "name",                     limit: 255
+    t.string   "path",                     limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
     t.integer  "file_type"
+    t.text     "content"
+    t.text     "highlighted_html_content"
   end
 
   create_table "program_symbols", force: :cascade do |t|
