@@ -10,7 +10,7 @@ class ProgramsController < ApplicationController
 
   def create
     
-    @program = Program.new params.require(:program).permit(:name, :outline)   # 実装は終わっていないことに注意!
+    @program = Program.new params.require(:program).permit(:name, :outline, :git_url)   # 実装は終わっていないことに注意!
     if @program.save
       flash[:success] = "Create #{@program.name}!"
       redirect_to root_path
@@ -26,6 +26,14 @@ class ProgramsController < ApplicationController
   	@program = Program.find(params[:id])
     @read_me = @program.program_files.find_by_name 'README.md'
 
+  end
+
+  def destroy
+
+    program = Program.find params[:id]
+    flash[:success] = "Program #{program.name} destroyed."
+    program.destroy
+    redirect_to root_path
   end
 
   def file_browse

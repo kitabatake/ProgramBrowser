@@ -27,26 +27,14 @@ RSpec.describe Program, type: :model do
 
     before do
       @program = Program.new
-      @program.name = "hoge"
+      @program.name = "test"
       @program.save
-
-      top_level_file = @program.program_files.build
-      top_level_file.program_id = @program.id
-      top_level_file.parent_id = 0
-      top_level_file.name = top_level_file_name
-      top_level_file.save
-
-      second_level_file = @program.program_files.build
-      second_level_file.program_id = @program.id
-      second_level_file.parent_id = top_level_file.id
-      second_level_file.save
     end
 
-    it 'has one top_level_file and it name equal top_level_file_name' do
+    it 'has 3 top_level_file' do
 
       top_level_files = @program.top_level_files
-      expect(top_level_files.length).to eq 1
-      expect(top_level_files.first.name).to eq top_level_file_name
+      expect(top_level_files.length).to eq 3
     end
   end
 
@@ -57,10 +45,10 @@ RSpec.describe Program, type: :model do
       @program = Program.new
       @program.name = "test"
       @program.save
-      @program.parse_files
+      #parse_files  is automatically called at after_create
     end
 
-    it 'has three ProgramFiles' do
+    it 'has 3 ProgramFiles' do
       expect(@program.program_files.length).to eq 4
     end
 

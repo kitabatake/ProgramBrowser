@@ -8,7 +8,7 @@ RSpec.describe ProgramFile, type: :model do
       program = Program.new
       program.name = "test"
       program.save
-      program.parse_files
+      program.send :parse_files
 
       @sample_file = ProgramFile.find_by_name 'sample.php'
     end
