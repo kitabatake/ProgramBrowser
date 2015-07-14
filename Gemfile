@@ -63,3 +63,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'capybara'
 end
+
+gem 'rugged', git: 'git://github.com/libgit2/rugged.git', submodules: true

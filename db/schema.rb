@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713041558) do
+ActiveRecord::Schema.define(version: 20150714063557) do
 
   create_table "program_file_symbols", force: :cascade do |t|
     t.integer  "program_file_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150713041558) do
     t.string   "string",     limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "git_url"
   end
 
 end
