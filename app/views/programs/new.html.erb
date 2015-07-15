@@ -1,0 +1,17 @@
+<h1>create new program</h1>
+
+<%= form_for(@program) do |program| %>
+
+  <%= program.label :name %>
+  <%= program.text_field :name %>
+
+  <%= program.label :outline %>
+  <%= program.text_field :outline %>
+
+  <%= program.label :git_url %>
+  <%= program.text_field :git_url %>
+
+  <div style='margin-top: 20px;'>
+    <%= program.submit "Create", class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>
