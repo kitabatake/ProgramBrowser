@@ -33,7 +33,7 @@ class ProgramFile < ActiveRecord::Base
             {linenos: 1}
         })
       rescue
-        highlighted = content
+        highlighted = "<pre>#{content}</pre>"
       end
 
       update_column :highlighted_html_content, highlighted

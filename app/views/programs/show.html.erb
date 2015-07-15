@@ -1,15 +1,8 @@
-<%= javascript_include_tag 'programs' %>
+<%= render 'header' %>
 
-<h1 style='margin-bottom: 40px;'><%= @program.name %></h1>
+<div class='row-fluid'>
 
-<div class="tabbable">
-  <ul class="nav nav-tabs">
-    <li class='active'><%= link_to 'outline', program_path(@program.id) %></li>
-    <li><%= link_to 'file browse', '/programs/file_browse/' + @program.id.to_s %></li>
-  </ul>
-</div>
-
-<div class='row-fluid' style='margin-top: 20px; '>
+<p><%= @program.outline %></p>
 
 <%= markdown(@read_me.content) if @read_me %>
 
