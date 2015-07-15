@@ -10,7 +10,7 @@ class ProgramFile < ActiveRecord::Base
     dir: 1
   }
 
-
+  # File content reflects DB 
   after_save do
     
     if file?

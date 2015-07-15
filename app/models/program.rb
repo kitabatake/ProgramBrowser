@@ -4,6 +4,16 @@ class Program < ActiveRecord::Base
 
   has_many :program_files, dependent: :destroy
 
+  after_create do 
+    git_clone
+    parse_files
+  end
+
+  after_destroy do
+    FileUtils.rm_rf(root_path)
+  end
+
+
   # get top level ProgramFiles
   # @return [Array] ProgramFiles
   def top_level_files
@@ -24,17 +34,10 @@ class Program < ActiveRecord::Base
     path.join self.name
   end
 
-  after_create do 
-    git_clone
-    parse_files
-  end
-
-  after_destroy do
-    FileUtils.rm_rf(root_path)
-  end
 
   private
 
+    # git clone to root_path
     def git_clone
 
       Rugged::Repository.clone_at git_url, root_path.to_s if git_url
