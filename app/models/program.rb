@@ -3,6 +3,7 @@ class Program < ActiveRecord::Base
   ProgramsDir = "app/programs"
 
   has_many :program_files, dependent: :destroy
+  has_many :subjects, dependent: :destroy
 
   after_create do 
     git_clone

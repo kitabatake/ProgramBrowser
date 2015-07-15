@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714112521) do
+ActiveRecord::Schema.define(version: 20150715033931) do
 
   create_table "program_file_symbols", force: :cascade do |t|
     t.integer  "program_file_id"
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(version: 20150714112521) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "git_url"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.integer  "program_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

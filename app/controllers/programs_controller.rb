@@ -10,7 +10,7 @@ class ProgramsController < ApplicationController
 
   def create
     
-    @program = Program.new params.require(:program).permit(:name, :outline, :git_url)   # 実装は終わっていないことに注意!
+    @program = Program.new params.require(:program).permit(:name, :outline, :git_url)
     if @program.save
       flash[:success] = "Create #{@program.name}!"
       redirect_to root_path
@@ -48,4 +48,9 @@ class ProgramsController < ApplicationController
 
     render json: { file_contents: program_file.highlighted_html_content }
   end
+
+  def subjects
+    @program = Program.find(params[:id])
+  end
+
 end

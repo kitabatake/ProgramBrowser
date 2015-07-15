@@ -1,0 +1,11 @@
+<h1>create new subject</h1>
+
+<%= form_for( [@subject.program, @subject] ) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <div style='margin-top: 20px;'>
+    <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>

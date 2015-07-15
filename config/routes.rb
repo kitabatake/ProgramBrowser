@@ -2,9 +2,13 @@ ProgramBrowser::Application.routes.draw do
   
   root  'programs#index'
 
-  resources :programs
+  resources :programs do
+    resources :subjects
+  end
+
   post '/programs/file_contents'
   get '/programs/file_browse/:id', to: 'programs#file_browse'
+  get '/programs/subjects/:id', to: 'programs#subjects'
   
 
   # The priority is based upon order of creation: first created -> highest priority.

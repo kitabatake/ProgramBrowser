@@ -4,9 +4,13 @@
   <ul class="nav nav-tabs">
     <li
       <%= "class='active'".html_safe if action_name == 'show' %>
-      ><%= link_to 'outline', '/programs/' + @program.id.to_s %></li>
+      ><%= link_to 'outline', '/programs/' + program.id.to_s %></li>
     <li
       <%= "class='active'".html_safe if action_name == 'file_browse' %>
-      ><%= link_to 'file browse', '/programs/file_browse/' + @program.id.to_s %></li>
+      ><%= link_to 'file browse', '/programs/file_browse/' + program.id.to_s %></li>
+
+    <li
+      <%= "class='active'".html_safe if controller_name == 'subjects' %>
+      ><%= link_to 'subjects', '/programs/' + program.id.to_s + '/subjects' %></li>
   </ul>
 </div>
