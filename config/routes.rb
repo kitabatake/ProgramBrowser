@@ -6,10 +6,12 @@ ProgramBrowser::Application.routes.draw do
     resources :subjects
   end
 
+  resources :subjects
+
   post '/programs/file_contents'
   get '/programs/file_browse/:id', to: 'programs#file_browse'
-  get '/programs/subjects/:id', to: 'programs#subjects'
-  
+
+  post '/memos', to: 'memos#create'  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

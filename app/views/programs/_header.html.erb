@@ -1,9 +1,9 @@
-<h1 style='margin-bottom: 40px;'><%= @program.name %></h1>
+<h1 style='margin-bottom: 40px;'><%= program.name %></h1>
 
 <div class="tabbable">
   <ul class="nav nav-tabs">
     <li
-      <%= "class='active'".html_safe if action_name == 'show' %>
+      <%= "class='active'".html_safe if controller_name == 'programs' && action_name == 'show' %>
       ><%= link_to 'outline', '/programs/' + program.id.to_s %></li>
     <li
       <%= "class='active'".html_safe if action_name == 'file_browse' %>

@@ -1,0 +1,15 @@
+<%= javascript_include_tag 'subjects' %>
+
+<%= render partial: '/programs/header', locals: {program: @subject.program} %>
+
+<h2><%= @subject.name %></h2>
+
+<%= link_to 'create new Memo', "#", {class: 'btn btn-primary memo_create_dialog_open_btn'} %>
+
+<% if @subject.memos %>
+  <% @subject.memos.each do |memo| %>
+    <%= memo.content + ", " %>
+  <% end %>
+<% end %>
+
+<%= render partial: '/memos/create_dialog', locals: {subject: @subject} %>
