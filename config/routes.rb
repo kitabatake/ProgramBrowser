@@ -11,7 +11,9 @@ ProgramBrowser::Application.routes.draw do
   post '/programs/file_contents'
   get '/programs/file_browse/:id', to: 'programs#file_browse'
 
-  post '/memos', to: 'memos#create'  
+  post '/memos', to: 'memos#create' 
+  patch '/memos', to: 'memos#update'
+  delete '/memos', to: 'memos#destroy' 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
