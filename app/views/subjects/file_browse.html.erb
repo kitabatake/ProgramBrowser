@@ -1,0 +1,23 @@
+<%= javascript_tag do %>
+  subject = <%= raw @subject.to_json %>;
+<% end %>
+
+<%= javascript_include_tag 'subjects_program_files' %>
+
+<%= render partial: 'header', locals: {subject: @subject} %>
+
+<div class='row-fluid' >
+
+  <div id="files" class='span3' style='background: #eee;'>
+    <ul style='padding: 10px;'>
+    <% @subject.program.top_level_files.each do |program_file| %>
+      <%= output_file_tree(program_file, :checkbox) %>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class='span9' style='background: #ddd;'>
+    <div id='file_contents' class='pygments'></div>
+  </div>
+
+</div>

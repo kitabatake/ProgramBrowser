@@ -42,4 +42,27 @@ class SubjectsController < ApplicationController
     subject.destroy
     redirect_to program_subjects_path params[:program_id]
   end
+
+  def bind_program_file
+
+    subject = Subject.find params[:subject_id]
+    program_file = ProgramFile.find params[:program_file_id]
+    subject.program_files << program_file
+
+    render json: params
+  end
+
+  def unbind_program_file
+
+    subject = Subject.find params[:subject_id]
+    program_file = ProgramFile.find params[:program_file_id]
+    subject.program_files.delete program_file
+
+    render json: params
+  end
+
+  def file_browse
+    @subject = Subject.find(params[:id])
+  end
+
 end

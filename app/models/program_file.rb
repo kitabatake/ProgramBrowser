@@ -5,6 +5,8 @@ class ProgramFile < ActiveRecord::Base
   has_many :program_file_symbols
   has_many :program_symbols, through: :program_file_symbols
 
+  has_and_belongs_to_many :subjects
+
   enum file_type: {
     file: 0,
     dir: 1

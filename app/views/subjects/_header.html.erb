@@ -15,6 +15,6 @@
 
     <li
       <%= "class='active'".html_safe if action_name == 'show' %>
-      ><%= link_to 'memos', '/subjects/show/' + subject.id.to_s %></li>
+      ><%= link_to 'memos', '/subjects/' + subject.id.to_s %></li>
   </ul>
 </div>

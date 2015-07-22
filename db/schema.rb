@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721022547) do
+ActiveRecord::Schema.define(version: 20150722050647) do
 
   create_table "memos", force: :cascade do |t|
     t.integer  "subject_id"
@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(version: 20150721022547) do
     t.integer  "file_type"
     t.text     "content"
     t.text     "highlighted_html_content"
+  end
+
+  create_table "program_files_subjects", force: :cascade do |t|
+    t.integer "program_file_id"
+    t.integer "subject_id"
   end
 
   create_table "program_symbols", force: :cascade do |t|

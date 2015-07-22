@@ -11,6 +11,11 @@ ProgramBrowser::Application.routes.draw do
   post '/programs/file_contents'
   get '/programs/file_browse/:id', to: 'programs#file_browse'
 
+  get '/subjects/file_browse/:id', to: 'subjects#file_browse'
+
+  post '/subjects/:subject_id/program_files/:program_file_id', to: 'subjects#bind_program_file'
+  delete '/subjects/:subject_id/program_files/:program_file_id', to: 'subjects#unbind_program_file'
+
   post '/memos', to: 'memos#create' 
   patch '/memos', to: 'memos#update'
   delete '/memos', to: 'memos#destroy' 

@@ -1,4 +1,7 @@
-<%= javascript_include_tag 'subjects' %>
+<%= javascript_tag do %>
+  subject = <%= raw @subject.to_json %>;
+<% end %>
+<%= javascript_include_tag 'memo_crud' %>
 
 <%= render partial: 'header', locals: {subject: @subject} %>
 
@@ -10,11 +13,11 @@
 <% if @subject.memos %>
   <div class='memos'>
     <% @subject.memos.each do |memo| %>
-      <div class='memo' id='memo_<%= memo.id %>'>
+      <div class='memo' id='memo_<%= memo.id %>' memo_id='<%= memo.id %>'>
         <div class='memo_header'>
           <%= memo.updated_at %>
           <div class='pull-right'>
-            <i class="icon-pencil memo_edit_area_open_btn" memo_id='<%= memo.id %>'></i>
+            <i class="icon-pencil memo_edit_area_open_btn"></i>
           </div>
         </div>
         <div class='memo_content'><%= simple_format h(memo.content) %></div>
@@ -22,11 +25,11 @@
           <textarea class='memo_content_edit'><%= memo.content %></textarea>
           <div class='memo_edit_area_footer'>
            <div class='pull-left'>
-              <a href='#' class='btn btn-warning memo_delete_btn' memo_id='<%= memo.id %>'>delete</a>
+              <a href='#' class='btn btn-warning memo_delete_btn' >delete</a>
             </div>
             <div class='pull-right'>
-              <a href='#' class='btn memo_edit_area_close_btn' memo_id='<%= memo.id %>'>cancel</a>
-              <a href='#' class='btn btn-info memo_update_btn' memo_id='<%= memo.id %>'>update</a>
+              <a href='#' class='btn memo_edit_area_close_btn'>cancel</a>
+              <a href='#' class='btn btn-info memo_update_btn'>update</a>
             </div>
            
           </div>

@@ -6,16 +6,13 @@ $(document).ready ->
 
   $('#memo_create_btn').click (e) ->
     e.preventDefault()
-    create_memo(
-      $(this).attr('subject_id'), 
-      $('#memo_content').val()
-    )
+    create_memo($('#memo_content').val())
     $('#memo_create_dialog').modal('hide')
 
   $('.memo_delete_btn').click (e) ->
     e.preventDefault()
-    delete_memo( $(this).attr('memo_id') )
-    $("#memo_" + $(this).attr('memo_id')).hide()
+    delete_memo find_memo_id(this)
+    $("#memo_" +find_memo_id(this)).hide()
 
   $('.memo_update_btn').click(update_memo)
 
@@ -24,14 +21,13 @@ $(document).ready ->
    
 
 # create memo through ajax
-# @param {Integer} subject_id
 # @param {String} content
-create_memo = (subject_id, content) ->
+create_memo = (content) ->
 
   $.ajax({
     url: '/memos'
     data: {
-      subject_id: subject_id
+      subject_id: subject.id
       content: content
     }
     success: (data)->
@@ -43,7 +39,7 @@ create_memo = (subject_id, content) ->
 open_memo_edit_area = (e) ->
 
   e.preventDefault()
-  memo = $("#memo_" + $(this).attr('memo_id'))
+  memo = $("#memo_" + find_memo_id(this))
   memo.find('.memo_edit_area').show()
   memo.find('.memo_content').hide()
 
@@ -52,7 +48,7 @@ open_memo_edit_area = (e) ->
 close_memo_edit_area = (e) ->
 
   e.preventDefault()
-  memo = $("#memo_" + $(this).attr('memo_id'))
+  memo = $("#memo_" + find_memo_id(this))
   memo.find('.memo_edit_area').hide()
   memo.find('.memo_content').show()
 
@@ -61,7 +57,7 @@ close_memo_edit_area = (e) ->
 update_memo = (e) ->
 
   e.preventDefault()
-  memo = $("#memo_" + $(this).attr('memo_id'))
+  memo = $("#memo_" + find_memo_id(this))
   val = memo.find('.memo_content_edit').val()
   memo.find('.memo_edit_area').hide()
   memo.find('.memo_content').html(val).show()
@@ -70,7 +66,7 @@ update_memo = (e) ->
     url: '/memos'
     type: 'PATCH'
     data: {
-      id: $(this).attr('memo_id')
+      id: find_memo_id(this)
       content: val
     }
     success: (data)->
@@ -78,7 +74,7 @@ update_memo = (e) ->
   })
 
 # delete memo through ajax
-# @param {Integer} subject_id
+# @param {Integer} memo_id
 delete_memo = (memo_id) ->
 
   $.ajax({
@@ -90,3 +86,23 @@ delete_memo = (memo_id) ->
     success: (data)->
       console.log('SUCCESS')
   })
+
+# go back recurive unless find 'memo_id' attribute
+# @param {Dom or JQuery} ele
+# @return Integer or null
+find_memo_id = (ele) ->
+
+  if $(ele).attr('memo_id')
+    return $(ele).attr('memo_id') / 1
+
+  parent = $(ele).parent()
+  if !parent
+    return null
+
+  if parent.attr('memo_id')
+    return parent.attr('memo_id') / 1
+
+  find_memo_id(parent)
+
+
+
