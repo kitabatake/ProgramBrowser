@@ -1,8 +1,6 @@
 <%= javascript_include_tag 'subjects' %>
 
-<%= render partial: '/programs/header', locals: {program: @subject.program} %>
-
-<h2><%= @subject.name %></h2>
+<%= render partial: 'header', locals: {subject: @subject} %>
 
 <div style='margin-bottom: 20px;'>
   <%= link_to 'create new Memo', "#", {class: 'btn btn-primary memo_create_dialog_open_btn'} %>

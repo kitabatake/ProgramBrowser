@@ -1,0 +1,20 @@
+<div class='clearfix' style='margin-bottom: 30px;'>
+<h1 class='pull-left'>
+    <%= link_to @subject.program.name, '/programs/' + @subject.program.id.to_s %>
+  </h1>
+  <span class='pull-left' style='font-size: 24px; padding-top: 20px; margin: 0 20px;'> > </span>
+  <h2 class='pull-left'><%= link_to @subject.name, '/subjects/' + @subject.id.to_s %></h2>
+</div>
+
+
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li
+      <%= "class='active'".html_safe if action_name == 'file_browse' %>
+      ><%= link_to 'file browse', '/subjects/file_browse/' + subject.id.to_s %></li>
+
+    <li
+      <%= "class='active'".html_safe if action_name == 'show' %>
+      ><%= link_to 'memos', '/subjects/show/' + subject.id.to_s %></li>
+  </ul>
+</div>
