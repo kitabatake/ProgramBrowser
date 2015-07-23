@@ -1,9 +1,9 @@
 <div class='clearfix' style='margin-bottom: 30px;'>
 <h1 class='pull-left'>
-    <%= link_to @subject.program.name, program_path(@subject.program) %>
+    <%= link_to @subject.program.name, @subject.program %>
   </h1>
   <span class='pull-left' style='font-size: 24px; padding-top: 20px; margin: 0 20px;'> > </span>
-  <h2 class='pull-left'><%= link_to @subject.name, subject_path(@subject) %></h2>
+  <h2 class='pull-left'><%= link_to @subject.name, @subject %></h2>
 </div>
 
 
@@ -15,6 +15,6 @@
 
     <li
       <%= "class='active'".html_safe if action_name == 'show' %>
-      ><%= link_to 'memos', subject_path(@subject) %></li>
+      ><%= link_to 'memos', @subject %></li>
   </ul>
 </div>

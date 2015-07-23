@@ -7,9 +7,9 @@ ProgramBrowser::Application.routes.draw do
   end
 
   resources :subjects, only: [:show, :edit, :update, :destroy]
-  
+
   post '/programs/file_contents'
-  get '/programs/file_browse/:id', to: 'programs#file_browse'
+  get '/programs/file_browse/:id', to: 'programs#file_browse', as: 'program_file_browse'
 
   get '/subjects/file_browse/:id', to: 'subjects#file_browse', as: 'subject_file_browse'
 

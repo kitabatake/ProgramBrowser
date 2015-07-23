@@ -4,9 +4,9 @@
   <ul class="nav nav-tabs">
     <li
       <%= "class='active'".html_safe if @active_tab == :home %>
-      ><%= link_to 'Home', '/programs/' + program.id.to_s %></li>
+      ><%= link_to 'Home', program %></li>
     <li
       <%= "class='active'".html_safe if @active_tab == :code %>
-      ><%= link_to 'Code', '/programs/file_browse/' + program.id.to_s %></li>
+      ><%= link_to 'Code', program_file_browse_path(program) %></li>
   </ul>
 </div>
