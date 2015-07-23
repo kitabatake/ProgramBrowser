@@ -24,7 +24,7 @@ class ProgramsController < ApplicationController
   def show
 
   	@program = Program.find(params[:id])
-    @read_me = @program.program_files.find_by_name 'README.md'
+    @active_tab = :home
 
   end
 
@@ -38,6 +38,7 @@ class ProgramsController < ApplicationController
 
   def file_browse
     @program = Program.find(params[:id])
+    @active_tab = :code
   end
 
   # get file contents action
@@ -47,10 +48,6 @@ class ProgramsController < ApplicationController
     program_file = ProgramFile.find params[:program_file_id]
 
     render json: { file_contents: program_file.highlighted_html_content }
-  end
-
-  def subjects
-    @program = Program.find(params[:id])
   end
 
 end

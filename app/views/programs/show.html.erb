@@ -1,10 +1,28 @@
 <%= render partial: 'header', locals: {program: @program} %>
 
-<div class='row-fluid'>
-
 <p><%= @program.outline %></p>
 
-<%= markdown(@read_me.content) if @read_me %>
+<h2>subjects</h2>
 
-<div>
+<%= link_to 'create new Subject', "/programs/#{@program.id}/subjects/new", {class: 'btn btn-primary'} %>
+
+<% if @program.subjects %>
+  
+  <table class='table table-bordered list-table' style='margin-top: 20px;'>
+  <% @program.subjects.each do |subject| %>
+    <tr>
+      <td>
+        <%= link_to subject.name, program_subject_path(@program.id, subject.id) %> 
+        <%= link_to  "<i class='icon-remove'></i>".html_safe, program_subject_path(@program.id, subject.id), 
+          {
+            method: :delete, 
+            class: 'delete-btn',
+              data: { confirm: "You sure?"}
+            }
+        %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>
 

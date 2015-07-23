@@ -6,8 +6,6 @@ ProgramBrowser::Application.routes.draw do
     resources :subjects
   end
 
-  resources :subjects
-
   post '/programs/file_contents'
   get '/programs/file_browse/:id', to: 'programs#file_browse'
 

@@ -1,18 +1,18 @@
-
-<%= link_to 'create new', '/programs/new', {class: 'btn btn-primary'} %>
+<div style='margin-bottom: 20px;'>
+  <%= link_to 'create new Program', '/programs/new', {class: 'btn btn-primary'} %>
+</div>
 
 <% if @programs %>
-  
-  <h2>programs</h2>
-  <table class='table table-striped'>
+
+  <table class='table table-bordered list-table'>
   <% @programs.each do |program| %>
     <tr>
       <td>
         <%= link_to program.name, program_path(program.id) %> 
-        <%= link_to "delete", program, 
+        <%= link_to "<i class='icon-remove'></i>".html_safe, program, 
           {
             method: :delete, 
-            class: 'pull-right btn btn-small btn-warning',
+            class: 'delete-btn',
               data: { confirm: "You sure?"}
             }
         %>

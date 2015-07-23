@@ -1,5 +1,6 @@
-<h1>create new subject</h1>
+<%= render partial: '/programs/header', locals: {program: @subject.program} %>
 
+<h2> create new Subject </h2>
 <%= form_for( [@subject.program, @subject] ) do |f| %>
 
   <%= f.label :name %>

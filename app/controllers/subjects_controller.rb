@@ -1,16 +1,12 @@
 class SubjectsController < ApplicationController
 
-  # GET /programs/:program_id/subjects
-  def index
-
-    @program = Program.find params[:program_id]
-  end
-
   # GET /programs/:program_id/subjects/new
   def new
 
     @program = Program.find params[:program_id]
     @subject = @program.subjects.build
+
+    @active_tab = :home
   end
 
   def create
@@ -21,7 +17,7 @@ class SubjectsController < ApplicationController
 
     if @subject.save
       flash[:success] = "Create #{@subject.name}!"
-      redirect_to program_subjects_path @program.id
+      redirect_to program_path @program.id
     else
       render :new
     end

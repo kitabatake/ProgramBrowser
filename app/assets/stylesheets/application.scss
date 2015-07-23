@@ -9,7 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
 
- @import "bootstrap";
+@import "bootstrap";
+@import "style";
+@import "programs";
+@import "memos";
+@import "pygments-github";
