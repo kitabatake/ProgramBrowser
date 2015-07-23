@@ -3,22 +3,25 @@ ProgramBrowser::Application.routes.draw do
   root  'programs#index'
 
   resources :programs do
+
+    member do
+      get 'file_browse'
+      get 'file_contents'
+    end
+
     resources :subjects, only: [:new, :create]
   end
 
-  resources :subjects, only: [:show, :edit, :update, :destroy]
+  resources :subjects, only: [:show, :edit, :update, :destroy] do
 
-  post '/programs/file_contents'
-  get '/programs/file_browse/:id', to: 'programs#file_browse', as: 'program_file_browse'
+    member do
+      get 'file_browse'
+      post 'program_files/:program_file_id',  to: 'subjects#bind_program_file'
+      delete 'program_files/:program_file_id', to: 'subjects#unbind_program_file'
+    end
+  end
 
-  get '/subjects/file_browse/:id', to: 'subjects#file_browse', as: 'subject_file_browse'
-
-  post '/subjects/:subject_id/program_files/:program_file_id', to: 'subjects#bind_program_file'
-  delete '/subjects/:subject_id/program_files/:program_file_id', to: 'subjects#unbind_program_file'
-
-  post '/memos', to: 'memos#create' 
-  patch '/memos', to: 'memos#update'
-  delete '/memos', to: 'memos#destroy' 
+  resources :memos, only: [:create, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

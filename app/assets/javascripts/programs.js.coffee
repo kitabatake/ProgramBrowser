@@ -5,8 +5,8 @@ $(document).ready ->
     e.preventDefault()
 
     $.ajax({
-      url: '/programs/file_contents'
-      data: { program_file_id: $(this).attr('program_file_id') }
+      url: '/programs/' + $(this).attr('program_file_id') + '/file_contents'
+      type: 'GET'
       success: (data)->
         $('#file_contents').html(data.file_contents)
         #$('#file_contents').html(data.file_contents.replace(/\r?\n/g, '<br>'))

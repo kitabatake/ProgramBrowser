@@ -63,10 +63,9 @@ update_memo = (e) ->
   memo.find('.memo_content').html(val).show()
 
   $.ajax({
-    url: '/memos'
+    url: '/memos/' + find_memo_id(this)
     type: 'PATCH'
     data: {
-      id: find_memo_id(this)
       content: val
     }
     success: (data)->
@@ -78,11 +77,8 @@ update_memo = (e) ->
 delete_memo = (memo_id) ->
 
   $.ajax({
-    url: '/memos'
+    url: '/memos/' + memo_id
     type: 'DELETE'
-    data: {
-      id: memo_id
-    }
     success: (data)->
       console.log('SUCCESS')
   })

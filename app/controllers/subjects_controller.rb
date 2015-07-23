@@ -41,7 +41,7 @@ class SubjectsController < ApplicationController
 
   def bind_program_file
 
-    subject = Subject.find params[:subject_id]
+    subject = Subject.find params[:id]
     program_file = ProgramFile.find params[:program_file_id]
     subject.program_files << program_file
 
@@ -50,7 +50,7 @@ class SubjectsController < ApplicationController
 
   def unbind_program_file
 
-    subject = Subject.find params[:subject_id]
+    subject = Subject.find params[:id]
     program_file = ProgramFile.find params[:program_file_id]
     subject.program_files.delete program_file
 

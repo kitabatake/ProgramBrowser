@@ -7,6 +7,6 @@
       ><%= link_to 'Home', program %></li>
     <li
       <%= "class='active'".html_safe if @active_tab == :code %>
-      ><%= link_to 'Code', program_file_browse_path(program) %></li>
+      ><%= link_to 'Code', file_browse_program_path(program) %></li>
   </ul>
 </div>

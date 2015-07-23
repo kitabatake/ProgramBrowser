@@ -11,7 +11,7 @@
   <ul class="nav nav-tabs">
     <li
       <%= "class='active'".html_safe if action_name == 'file_browse' %>
-      ><%= link_to 'file browse', subject_file_browse_path(subject) %></li>
+      ><%= link_to 'file browse', file_browse_subject_path(subject) %></li>
 
     <li
       <%= "class='active'".html_safe if action_name == 'show' %>

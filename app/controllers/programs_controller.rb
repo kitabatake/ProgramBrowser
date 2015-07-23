@@ -45,7 +45,7 @@ class ProgramsController < ApplicationController
   # @param [String] file_name
   def file_contents
 
-    program_file = ProgramFile.find params[:program_file_id]
+    program_file = ProgramFile.find params[:id]
 
     p program_file.highlighted_html_content
     render json: { file_contents: program_file.highlighted_html_content }
