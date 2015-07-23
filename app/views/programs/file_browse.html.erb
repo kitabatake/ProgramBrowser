@@ -2,18 +2,20 @@
 
 <%= render partial: 'header', locals: {program: @program} %>
 
-<div class='row-fluid' >
-
-  <div id="files" class='span3' style='background: #eee;'>
-    <ul style='padding: 10px;'>
-    <% @program.top_level_files.each do |program_file| %>
-      <%= output_file_tree(program_file) %>
-    <% end %>
-    </ul>
+<div class='clearfix' >
+  <div id='files_container'>
+    <div id="files" >
+      <ul>
+      <% @program.top_level_files.each do |program_file| %>
+        <%= output_file_tree(program_file) %>
+      <% end %>
+      </ul>
+    </div>
   </div>
 
-  <div class='span9' style='background: #ddd;'>
-    <div id='file_contents' class='pygments'></div>
+  <div id='file_contents_container'>
+    <div id='file_contents' class='pygments'>
+    </div>
   </div>
 
 </div>

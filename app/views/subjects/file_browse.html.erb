@@ -8,7 +8,7 @@
 
 <div class='row-fluid' >
 
-  <div id="files" class='span3' style='background: #eee;'>
+  <div id="files" class='span6' style='background: #eee;'>
     <ul style='padding: 10px;'>
     <% @subject.program.top_level_files.each do |program_file| %>
       <%= output_file_tree(program_file, :checkbox) %>
@@ -16,7 +16,7 @@
     </ul>
   </div>
 
-  <div class='span9' style='background: #ddd;'>
+  <div class='span5' style='background: #ddd;'>
     <div id='file_contents' class='pygments'></div>
   </div>
 

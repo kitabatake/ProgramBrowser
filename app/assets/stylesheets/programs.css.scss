@@ -1,28 +1,45 @@
+
+#files_container {
+  width: 25%;
+  float: left;
+}
+
 #files{
 
   ul{
-    margin-left: 0;
+    margin: 0;
+    padding: 0;
   }
 
   li {
     list-style-type: none;
-    margin-left: 0;
-    padding-left: 0;
+    padding: 3px 10px;
+    margin: 0;
+
+    background: #fff;
+
+    &:hover{
+      background:$light_blue_color;
+    }
   }
 
   a{
     color: $main_font_color;
+
+    &:hover{
+      text-decoration: none;
+    }
   }
 
   .child_files{
-    margin-left: 10px;
+    padding-left: 14px;
   }
 
   .file_name{
   &:before{
       content:"- "
     }
-    margin-left: 4px;
+    margin: 0 0 0 4px;
   }
 
   .dir_name{
@@ -33,7 +50,25 @@
   }
 }
 
-#file_contents {
-  padding: 10px;
+#file_contents_container {
+  float: left;
+  width: 75%;
 }
 
+#file_contents {
+
+  border-radius: 5px;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid #eee;
+
+  pre {
+    background: none;
+    border: none;
+    font-family: sans-serif;
+  }
+}
+
+.linenodiv pre {
+  color: #aaa;
+}
