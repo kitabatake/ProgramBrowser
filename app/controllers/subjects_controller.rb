@@ -17,7 +17,7 @@ class SubjectsController < ApplicationController
 
     if @subject.save
       flash[:success] = "Create #{@subject.name}!"
-      redirect_to program_path @program.id
+      redirect_to program_path @program
     else
       render :new
     end
@@ -36,7 +36,7 @@ class SubjectsController < ApplicationController
     subject = Subject.find params[:id]
     flash[:success] = "Subject #{subject.name} destroyed."
     subject.destroy
-    redirect_to program_subjects_path params[:program_id]
+    redirect_to program_path subject.program
   end
 
   def bind_program_file

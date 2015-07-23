@@ -1,9 +1,9 @@
 <div class='clearfix' style='margin-bottom: 30px;'>
 <h1 class='pull-left'>
-    <%= link_to @subject.program.name, '/programs/' + @subject.program.id.to_s %>
+    <%= link_to @subject.program.name, program_path(@subject.program) %>
   </h1>
   <span class='pull-left' style='font-size: 24px; padding-top: 20px; margin: 0 20px;'> > </span>
-  <h2 class='pull-left'><%= link_to @subject.name, '/subjects/' + @subject.id.to_s %></h2>
+  <h2 class='pull-left'><%= link_to @subject.name, subject_path(@subject) %></h2>
 </div>
 
 
@@ -11,10 +11,10 @@
   <ul class="nav nav-tabs">
     <li
       <%= "class='active'".html_safe if action_name == 'file_browse' %>
-      ><%= link_to 'file browse', '/subjects/file_browse/' + subject.id.to_s %></li>
+      ><%= link_to 'file browse', subject_file_browse_path(subject) %></li>
 
     <li
       <%= "class='active'".html_safe if action_name == 'show' %>
-      ><%= link_to 'memos', program_subject_path(@subject.program.id, @subject.id) %></li>
+      ><%= link_to 'memos', subject_path(@subject) %></li>
   </ul>
 </div>

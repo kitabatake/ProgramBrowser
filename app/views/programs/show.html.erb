@@ -12,8 +12,8 @@
   <% @program.subjects.each do |subject| %>
     <tr>
       <td>
-        <%= link_to subject.name, program_subject_path(@program.id, subject.id) %> 
-        <%= link_to  "<i class='icon-remove'></i>".html_safe, program_subject_path(@program.id, subject.id), 
+        <%= link_to subject.name, subject_path(subject) %> 
+        <%= link_to  "<i class='icon-remove'></i>".html_safe, subject_path(subject), 
           {
             method: :delete, 
             class: 'delete-btn',
