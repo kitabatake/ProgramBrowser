@@ -16,6 +16,7 @@ ProgramBrowser::Application.routes.draw do
 
     member do
       get 'file_browse'
+      get 'select_files'
       post 'program_files/:program_file_id',  to: 'subjects#bind_program_file'
       delete 'program_files/:program_file_id', to: 'subjects#unbind_program_file'
     end

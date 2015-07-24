@@ -1,14 +1,20 @@
 @import "bootstrap";
 
  $main_font_color: #444;
-
+ $dark_blue_color: #273036;
  $light_blue_color: #e8fafa;
+
+.navbar .navbar-inner {
+  background: $dark_blue_color;
+}
 
 .navbar-inner{
   @include border-radius(0);
 
+
   .container{
     width: $gridRowWidth;
+    
   }
 }
 

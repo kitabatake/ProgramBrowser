@@ -11,8 +11,8 @@
   <div id='files_container'>
     <div id="files" >
       <ul>
-      <% @subject.program_files.each do |program_file| %>
-        <%= output_subject_program_files(program_file) %>
+      <% @subject.program.top_level_files.each do |program_file| %>
+        <%= output_file_tree(program_file, :checkbox) %>
       <% end %>
       </ul>
     </div>

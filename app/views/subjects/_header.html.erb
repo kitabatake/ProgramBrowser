@@ -11,11 +11,15 @@
 
     <li
       <%= "class='active'".html_safe if action_name == 'show' %>
-      ><%= link_to 'memos', @subject %></li>
+      ><%= link_to 'Home', @subject %></li>
 
     <li
       <%= "class='active'".html_safe if action_name == 'file_browse' %>
-      ><%= link_to 'file browse', file_browse_subject_path(subject) %></li>
+      ><%= link_to 'Subjects files', file_browse_subject_path(subject) %></li>
+
+    <li
+      <%= "class='active'".html_safe if action_name == 'select_files' %>
+      ><%= link_to 'Select files', select_files_subject_path(subject) %></li>
     
   </ul>
 </div>

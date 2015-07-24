@@ -61,4 +61,8 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
   end
 
+  def select_files
+    @subject = Subject.find(params[:id])
+  end
+
 end

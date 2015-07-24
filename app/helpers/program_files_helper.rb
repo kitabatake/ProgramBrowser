@@ -11,7 +11,7 @@ module ProgramFilesHelper
       html << "<ul class='child_files' style='display: none;'>"
       
       program_file.child_files.each do |child_file|
-        html += output_file_tree child_file
+        html += output_file_tree child_file, type
       end
       html << "</ul></li>"
 
@@ -33,4 +33,16 @@ module ProgramFilesHelper
 
     return html.html_safe
   end
+
+  # generate li tag of program files associated subject
+  def output_subject_program_files(program_file)
+
+    html = "<li><a href='#' program_file_id='#{program_file.id}' class='file_name'>#{program_file.path}</a>"
+
+    html << "</li>"
+
+
+    return html.html_safe
+  end
+
 end
