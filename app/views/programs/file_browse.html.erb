@@ -1,10 +1,11 @@
+<%= javascript_include_tag 'program_file_viewer' %>
 <%= javascript_include_tag 'programs' %>
 
 <%= render partial: 'header', locals: {program: @program} %>
 
 <div class='clearfix' >
-  <div id='files_container'>
-    <div id="files" >
+  <div id='program_files_container'>
+    <div id="program_files" >
       <ul>
       <% @program.top_level_files.each do |program_file| %>
         <%= output_file_tree(program_file) %>
@@ -13,9 +14,8 @@
     </div>
   </div>
 
-  <div id='file_contents_container'>
-    <div id='file_contents' class='codehilite'>
-    </div>
+  <div id='program_file_viewer_container'>
+    <%= render partial: 'program_file_viewer' %>
   </div>
 
 </div>

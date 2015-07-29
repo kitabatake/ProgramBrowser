@@ -6,7 +6,7 @@ ProgramBrowser::Application.routes.draw do
 
     member do
       get 'file_browse'
-      get 'file_contents'
+      get 'program_file'
     end
 
     resources :subjects, only: [:new, :create]

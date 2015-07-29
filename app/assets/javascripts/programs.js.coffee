@@ -1,18 +1,12 @@
+program_file_viewer = new ProgramFileViewer
+
 $(document).ready ->
   
+  program_file_viewer.init()
+
   $('.file_name').on 'click', (e) ->
-
     e.preventDefault()
-
-    $.ajax({
-      url: '/programs/' + $(this).attr('program_file_id') + '/file_contents'
-      type: 'GET'
-      success: (data)->
-        $('#file_contents').html(data.file_contents)
-        #$('#file_contents').html(data.file_contents.replace(/\r?\n/g, '<br>'))
-    })
-
-    return false
+    program_file_viewer.add_program_file $(this).attr('program_file_id')
 
 
   $('.dir_name').on 'click', (e) ->

@@ -1,10 +1,10 @@
 
-#files_container {
+#program_files_container {
   width: 25%;
   float: left;
 }
 
-#files{
+#program_files{
 
   ul{
     margin: 0;
@@ -50,12 +50,12 @@
   }
 }
 
-#file_contents_container {
+#program_file_viewer_container {
   float: left;
   width: 75%;
 }
 
-#file_contents {
+#program_file_content {
 
   border-radius: 5px;
   padding: 6px;

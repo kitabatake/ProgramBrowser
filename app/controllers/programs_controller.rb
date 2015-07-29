@@ -41,14 +41,16 @@ class ProgramsController < ApplicationController
     @active_tab = :code
   end
 
-  # get file contents action
+  # get program file action
   # @param [String] file_name
-  def file_contents
+  def program_file
 
     program_file = ProgramFile.find params[:id]
-
-    p program_file.highlighted_html_content
-    render json: { file_contents: program_file.highlighted_html_content }
+    render json: { 
+      name: program_file.name,
+      path: program_file.path,
+      content: program_file.highlighted_html_content,
+    }
   end
 
 end
