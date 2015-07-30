@@ -9,3 +9,22 @@
     }
   }
 }
+
+#program_file_content {
+
+  border-radius: 5px;
+  padding: 6px;
+  background: $dark_blue_color;
+  border: 1px solid #eee;
+
+  pre {
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: sans-serif;
+  }
+}
+
+.linenodiv pre {
+  color: #aaa;
+}
