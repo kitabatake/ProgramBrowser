@@ -23,7 +23,7 @@ class window.ProgramFileViewer
     @$program_files_tab.children().removeClass('active')
 
     $.ajax({
-      url: '/programs/' + program_file_id + '/program_file'
+      url: '/program_files/' + program_file_id
       type: 'GET'
       success: (data) =>
 

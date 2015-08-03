@@ -20,7 +20,7 @@
             <i class="icon-pencil memo_edit_area_open_btn"></i>
           </div>
         </div>
-        <div class='memo_content'><%= simple_format h(memo.content) %></div>
+        <div class='memo_content'><%= markdown h(memo.content) %></div>
         <div class='memo_edit_area clearfix' style='display: none;'>
           <textarea class='memo_content_edit'><%= memo.content %></textarea>
           <div class='memo_edit_area_footer'>

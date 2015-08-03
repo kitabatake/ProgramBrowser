@@ -6,7 +6,6 @@ ProgramBrowser::Application.routes.draw do
 
     member do
       get 'file_browse'
-      get 'program_file'
     end
 
     resources :subjects, only: [:new, :create]
@@ -21,6 +20,8 @@ ProgramBrowser::Application.routes.draw do
       delete 'program_files/:program_file_id', to: 'subjects#unbind_program_file'
     end
   end
+
+  resources :program_files, only: [:show]
 
   resources :memos, only: [:create, :update, :destroy]
 
