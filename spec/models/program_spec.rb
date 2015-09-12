@@ -58,6 +58,25 @@ RSpec.describe Program, type: :model do
       expect(dirs.first.name).to eq "sample_dir"
     end
   end
+
+  describe "#program_files_parent_children_relations" do
+
+    before do
+      #prepare program that corresponds to "app/programs/test" dir.
+      @program = Program.new
+      @program.name = "test"
+      @program.save
+    end
+
+    it 'length is one and name is b.txt' do
+      expect(@program.program_files_parent_children_relations.length).to eq 1
+
+      b = @program.program_files.find_by_name("b.txt")
+      sample_dir_children = @program.program_files_parent_children_relations[b.parent_id]
+      expect(sample_dir_children.first.name).to eq "b.txt"
+    end
+
+  end
 end
 
 

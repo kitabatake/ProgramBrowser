@@ -38,6 +38,7 @@ class ProgramsController < ApplicationController
 
   def file_browse
     @program = Program.find(params[:id])
+
     @active_tab = :code
   end
 

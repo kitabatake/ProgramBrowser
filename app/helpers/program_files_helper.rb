@@ -5,12 +5,13 @@ module ProgramFilesHelper
   # When file is dir, recursive generate following files.
   def output_file_tree(program_file, type = 'display')
 
-    if program_file.dir?
+    program_files_parent_children_relations = program_file.program.program_files_parent_children_relations
+    if program_file.dir? && program_files_parent_children_relations[program_file.id]
 
       html = "<li><a href='' class='dir_name' dir_status='close'>#{program_file.name}</a>"
       html << "<ul class='child_files' style='display: none;'>"
       
-      program_file.child_files.each do |child_file|
+      program_files_parent_children_relations[program_file.id].each do |child_file|
         html += output_file_tree child_file, type
       end
       html << "</ul></li>"
@@ -21,7 +22,7 @@ module ProgramFilesHelper
       if type == :checkbox
         html << " <input class='bind_subject_program_file' type='checkbox' program_file_id='#{program_file.id}'"
 
-        if @subject.program_files.exists? program_file
+        if @subject.selected_program_files.include? program_file
           html << "checked='checked'"
         end
 

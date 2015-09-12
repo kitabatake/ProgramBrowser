@@ -5,6 +5,10 @@ class Program < ActiveRecord::Base
   has_many :program_files, dependent: :destroy
   has_many :subjects, dependent: :destroy
 
+  attr_reader :program_files_parent_children_relations
+
+  @program_files_parent_children_relations = {a: 12}
+
   after_create do 
     git_clone
     parse_files
@@ -35,6 +39,26 @@ class Program < ActiveRecord::Base
     path.join self.name
   end
 
+  # parent children relations of program files
+  # @return [Hash] [:parent_id] => [Array] child files
+  def program_files_parent_children_relations
+
+    return @program_files_parent_children_relations if @program_files_parent_children_relations
+
+    hash = {}
+
+    program_files.each do |program_file|
+
+      if program_file.parent_id > 0
+        hash[program_file.parent_id] = [] unless hash[program_file.parent_id]
+        hash[program_file.parent_id].push program_file
+      end
+    end
+
+    @program_files_parent_children_relations = hash
+
+    return hash
+  end
 
   private
 
