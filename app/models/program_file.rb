@@ -30,7 +30,7 @@ class ProgramFile < ActiveRecord::Base
       begin
 
         highlighted = Pygments.highlight( content, {
-          lexer: File.extname(path).gsub(/^\./, ''),
+          lexer: lexer,
           options:
             {linenos: 1}
         })
@@ -42,6 +42,21 @@ class ProgramFile < ActiveRecord::Base
     end
 
   end
+
+  LEXER_CONVERT_TABLE = {
+    'gemspec' => 'rb'
+  }
+
+  def lexer
+    lexer = File.extname(path).gsub(/^\./, '')
+
+    if LEXER_CONVERT_TABLE.has_key? lexer
+      lexer = LEXER_CONVERT_TABLE[lexer] 
+    end
+    return lexer
+  end
+
+  
 
   # get children files
   # @return [Array] ProgramFile list
